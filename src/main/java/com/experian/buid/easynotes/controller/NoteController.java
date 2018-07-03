@@ -17,66 +17,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.experian.buid.easynotes.AppConstants;
-import com.experian.buid.easynotes.exception.ResourceNotFoundException;
 import com.experian.buid.easynotes.model.Note;
-import com.experian.buid.easynotes.repository.NoteRepository;
+import com.experian.buid.easynotes.service.NoteService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * Created by rajeevkumarsingh on 27/06/17.
+ * Created by Marcos Godinho.
  */
 @RestController
 @RequestMapping(AppConstants.Notes.PATH)
 @Api(value = AppConstants.Notes.NAME)
 public class NoteController {
 
-    @Autowired
-    NoteRepository noteRepository;
+	@Autowired
+	private NoteService noteService;
 
-    @GetMapping(value = "/notes", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Get all notes")
-    public List<Note> getAllNotes() {
-        return noteRepository.findAll();
-    }
+	@GetMapping(value = "/notes", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Get all notes")
+	public List<Note> getAllNotes() {
+		return noteService.getAllNotes();
+	}
 
-    @PostMapping(value = "/notes", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Create a note")
-    public Note createNote(@Valid @RequestBody Note note) {
-        return noteRepository.save(note);
-    }
+	@PostMapping(value = "/notes", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Create a note")
+	public Note createNote(@Valid @RequestBody Note note) {
+		return noteService.createNote(note);
+	}
 
-    @GetMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Search a note by ID")
-    public Note getNoteById(@PathVariable(value = "id") Long noteId) {
-        return noteRepository.findById(noteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
-    }
+	@GetMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Search a note by ID")
+	public Note getNoteById(@PathVariable(value = "id") Long noteId) {
+		return noteService.getNoteById(noteId);
+	}
 
-    @PutMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Update a note")
-    public Note updateNote(@PathVariable(value = "id") Long noteId,
-                                           @Valid @RequestBody Note noteDetails) {
+	@PutMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Update a note")
+	public Note updateNote(@PathVariable(value = "id") Long noteId, @Valid @RequestBody Note noteDetails) {
+		return noteService.updateNote(noteId, noteDetails);
+	}
 
-        Note note = noteRepository.findById(noteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
-
-        note.setTitle(noteDetails.getTitle());
-        note.setContent(noteDetails.getContent());
-
-        Note updatedNote = noteRepository.save(note);
-        return updatedNote;
-    }
-
-    @DeleteMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Delete a note by ID")
-    public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
-        Note note = noteRepository.findById(noteId)
-                .orElseThrow(() -> new ResourceNotFoundException("Note", "id", noteId));
-
-        noteRepository.delete(note);
-
-        return ResponseEntity.ok().build();
-    }
+	@DeleteMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value = "Delete a note by ID")
+	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
+		noteService.deleteNote(noteId);
+		return ResponseEntity.ok().build();
+	}
 }

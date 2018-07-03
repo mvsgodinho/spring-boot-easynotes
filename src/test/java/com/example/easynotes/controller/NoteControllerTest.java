@@ -14,10 +14,12 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.experian.buid.easynotes.AppConstants;
+import com.experian.buid.easynotes.EasyNotesApplication;
+import com.experian.buid.easynotes.model.Note;
 
 //http://www.baeldung.com/spring-boot-testing
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = EasyNotesApplication.class)
 @AutoConfigureMockMvc
 @TestPropertySource("classpath:application-test.properties")
 public class NoteControllerTest {
@@ -33,7 +35,14 @@ public class NoteControllerTest {
 	}
 
 	@Test
-	private void performGenerateTokenReq() throws Exception {
+	public void createAndGetAllNotesTest() throws Exception {
+		mvc.perform(
+				MockMvcRequestBuilders.post(API_PATH)
+					.content("{title: 'Test', content: 'test content'}")
+					.contentType(MediaType.APPLICATION_JSON)
+					.accept(MediaType.APPLICATION_JSON))
+					.andExpect(MockMvcResultMatchers.status().isOk());
+		
 		mvc.perform(
 				MockMvcRequestBuilders.get(API_PATH)
 					.accept(MediaType.TEXT_HTML))
