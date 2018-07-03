@@ -34,31 +34,31 @@ public class NoteController {
 	@Autowired
 	private NoteService noteService;
 
-	@GetMapping(value = "/notes", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Get all notes")
 	public List<Note> getAllNotes() {
 		return noteService.getAllNotes();
 	}
 
-	@PostMapping(value = "/notes", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Create a note")
 	public Note createNote(@Valid @RequestBody Note note) {
 		return noteService.createNote(note);
 	}
 
-	@GetMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Search a note by ID")
 	public Note getNoteById(@PathVariable(value = "id") Long noteId) {
 		return noteService.getNoteById(noteId);
 	}
 
-	@PutMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Update a note")
 	public Note updateNote(@PathVariable(value = "id") Long noteId, @Valid @RequestBody Note noteDetails) {
 		return noteService.updateNote(noteId, noteDetails);
 	}
 
-	@DeleteMapping(value = "/notes/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiOperation(value = "Delete a note by ID")
 	public ResponseEntity<?> deleteNote(@PathVariable(value = "id") Long noteId) {
 		noteService.deleteNote(noteId);

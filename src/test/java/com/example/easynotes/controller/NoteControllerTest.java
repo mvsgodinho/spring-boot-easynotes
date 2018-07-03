@@ -15,7 +15,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.experian.buid.easynotes.AppConstants;
 import com.experian.buid.easynotes.EasyNotesApplication;
-import com.experian.buid.easynotes.model.Note;
 
 //http://www.baeldung.com/spring-boot-testing
 @RunWith(SpringRunner.class)
@@ -24,8 +23,7 @@ import com.experian.buid.easynotes.model.Note;
 @TestPropertySource("classpath:application-test.properties")
 public class NoteControllerTest {
 
-	private static final String API_PATH = "https://localhost:8080" + AppConstants.Api.CONTEXT_PATH
-			+ AppConstants.Notes.PATH;
+	private static final String API_PATH = AppConstants.Notes.PATH;
 
 	@Autowired
 	private MockMvc mvc;
@@ -38,14 +36,14 @@ public class NoteControllerTest {
 	public void createAndGetAllNotesTest() throws Exception {
 		mvc.perform(
 				MockMvcRequestBuilders.post(API_PATH)
-					.content("{title: 'Test', content: 'test content'}")
+					.content("{ \"content\": \"Content 1\", \"title\": \"Note 1\"}")
 					.contentType(MediaType.APPLICATION_JSON)
 					.accept(MediaType.APPLICATION_JSON))
 					.andExpect(MockMvcResultMatchers.status().isOk());
 		
 		mvc.perform(
 				MockMvcRequestBuilders.get(API_PATH)
-					.accept(MediaType.TEXT_HTML))
+					.accept(MediaType.APPLICATION_JSON))
 					.andExpect(MockMvcResultMatchers.status().isOk());
 	}
 
