@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiOperation;
  */
 @RestController
 @RequestMapping(AppConstants.Notes.PATH)
-@Api(value = AppConstants.Notes.NAME)
+@Api(tags = AppConstants.Notes.NAME)
 public class NoteController {
 
 	@Autowired

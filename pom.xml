@@ -41,6 +41,12 @@
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!-- Spring Management Endpoints -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
 		<!-- MySQL Database -->
 		<dependency>
 			<groupId>mysql</groupId>
