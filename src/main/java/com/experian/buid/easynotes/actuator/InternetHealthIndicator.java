@@ -12,29 +12,32 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class InternetHealthIndicator implements HealthIndicator {
-	
+
 	private static final Log logger = LogFactory.getLog(InternetHealthIndicator.class);
+	
+	protected String hostName = "google.com";
+	protected int port = 443;
+	protected int timeout = 1000;
 
 	@Override
 	public Health health() {
-		if (isHostAvailable("google.com")) {
-			return Health.up().build();
-		} else {
-			return Health.down().build();
+		try {
+			int time = ping(hostName, port, timeout);
+			return Health.up().withDetail("ping", time).build();
+		} catch (IOException e) {
+			if (logger.isWarnEnabled()) {
+				logger.warn("Internet is down", e);
+			}
+			return Health.down(e).build();
 		}
 	}
 
-	private boolean isHostAvailable(String hostName) {
+	protected int ping(String hostName, int port, int timeout) throws IOException {
 		try (Socket socket = new Socket()) {
-			int port = 443;
 			InetSocketAddress socketAddress = new InetSocketAddress(hostName, port);
-			socket.connect(socketAddress, 500);
-			return true;
-		} catch (IOException e) {
-			if(logger.isWarnEnabled()) {
-				logger.warn("Internet is down", e);
-			}
-			return false;
+			long time = System.currentTimeMillis();
+			socket.connect(socketAddress, timeout);
+			return (int) (System.currentTimeMillis() - time);
 		}
 	}
 }
