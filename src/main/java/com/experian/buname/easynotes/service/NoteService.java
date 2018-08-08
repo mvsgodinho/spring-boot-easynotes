@@ -1,13 +1,13 @@
-package com.experian.buid.easynotes.service;
+package com.experian.buname.easynotes.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.experian.buid.easynotes.exception.ResourceNotFoundException;
-import com.experian.buid.easynotes.model.Note;
-import com.experian.buid.easynotes.repository.NoteRepository;
+import com.experian.buname.easynotes.exception.ResourceNotFoundException;
+import com.experian.buname.easynotes.model.Note;
+import com.experian.buname.easynotes.repository.NoteRepository;
 
 /**
  * Created by Marcos Godinho.

@@ -1,4 +1,4 @@
-package com.experian.buid.easynotes.exception;
+package com.experian.buname.easynotes.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

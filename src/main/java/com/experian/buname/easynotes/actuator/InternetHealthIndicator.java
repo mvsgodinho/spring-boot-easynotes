@@ -1,4 +1,4 @@
-package com.experian.buid.easynotes.actuator;
+package com.experian.buname.easynotes.actuator;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

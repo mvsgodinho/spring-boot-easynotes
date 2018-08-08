@@ -1,4 +1,4 @@
-package com.experian.buid.easynotes.controller;
+package com.experian.buname.easynotes.controller;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.experian.buid.easynotes.AppConstants;
-import com.experian.buid.easynotes.model.Note;
-import com.experian.buid.easynotes.service.NoteService;
+import com.experian.buname.easynotes.AppConstants;
+import com.experian.buname.easynotes.model.Note;
+import com.experian.buname.easynotes.service.NoteService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ import io.swagger.annotations.ApiOperation;
  * Created by Marcos Godinho.
  */
 @RestController
-@RequestMapping(AppConstants.Notes.PATH)
+@RequestMapping(AppConstants.Notes.PATH_V1)
 @Api(tags = AppConstants.Notes.NAME)
 public class NoteController {
 

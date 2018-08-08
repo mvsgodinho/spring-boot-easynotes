@@ -1,4 +1,4 @@
-package com.example.easynotes;
+package com.experian.buname.easynotes;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.experian.buid.easynotes.EasyNotesApplication;
+import com.experian.buname.easynotes.EasyNotesApplication;
 
 
 @RunWith(SpringRunner.class)
