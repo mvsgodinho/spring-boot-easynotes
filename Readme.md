@@ -37,6 +37,24 @@ The app will start running at <http://localhost:8080/buid/easynotes>
 
 You can test them using the embedded Swagger UI.
 
+## Steps to Deploy - Openshift
+
+**1. Create a new project**
+
+```bash
+oc new-project spring-boot-easynotes
+```
+
+Create secret
+```bash
+oc create secret generic git     --from-literal=username=<user> --from-literal=password=<pass> --type=kubernetes.io/basic-auth
+```
+
+Create app
+```bash
+oc new-app openshift/java:8~https://mvsgodinho@bitbucket.org/mvsgodinho/spring-boot-easynotes.git --source-secret='git' -o yaml
+```
+
 ## Using a Mysql database
 
 **1. Create Mysql database**
