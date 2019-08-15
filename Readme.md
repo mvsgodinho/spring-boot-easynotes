@@ -39,6 +39,8 @@ You can test them using the embedded Swagger UI.
 
 ## Steps to Deploy - Openshift
 
+Service Accounts: https://docs.openshift.com/container-platform/4.1/authentication/using-service-accounts-in-applications.html
+
 **1. Create a new project**
 
 ```bash
@@ -54,6 +56,8 @@ Create app
 ```bash
 oc new-app openshift/java:8~https://mvsgodinho@bitbucket.org/mvsgodinho/spring-boot-easynotes.git --source-secret='git' -o yaml
 ```
+
+Source: https://docs.openshift.com/online/using_images/s2i_images/java.html#s2i-images-java-deploy-applications-from-binary
 
 ## Using a Mysql database
 
