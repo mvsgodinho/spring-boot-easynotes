@@ -48,7 +48,7 @@ oc create secret generic git     --from-literal=username=<user> --from-literal=p
 
 Create app
 ```bash
-oc new-app openshift/java:8~https://mvsgodinho@bitbucket.org/mvsgodinho/spring-boot-easynotes.git --source-secret='git' -o yaml
+oc new-app openshift/java:8~https://github.com/mvsgodinho/spring-boot-easynotes.git --source-secret='git' -o yaml
 ```
 
 Source: https://docs.openshift.com/online/using_images/s2i_images/java.html#s2i-images-java-deploy-applications-from-binary
