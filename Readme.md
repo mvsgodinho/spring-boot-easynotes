@@ -27,7 +27,7 @@ mvn spring-boot:run
 
 ## Explore Rest APIs
 
-The app will start running at <http://localhost:8080/buid/easynotes>
+The app will start running at <http://localhost:8080>
 
 You can test them using the embedded Swagger UI.
 
