@@ -12,13 +12,7 @@ Build Restful CRUD API for a simple Note-Taking application using Spring Boot, J
 
 ## Steps to Setup
 
-**1. Clone the application**
-
-```bash
-git clone https://bitbucketglobal.experian.local/scm/edvp/experian-spring-boot-blank-archetype.git
-```
-
-**2. Build and run the app using maven**
+**Build and run the app using maven**
 
 ```bash
 mvn package

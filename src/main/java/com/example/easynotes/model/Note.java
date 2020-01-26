@@ -1,4 +1,4 @@
-package com.experian.buname.easynotes.model;
+package com.example.easynotes.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

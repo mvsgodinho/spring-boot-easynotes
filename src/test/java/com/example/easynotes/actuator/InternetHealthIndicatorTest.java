@@ -1,4 +1,4 @@
-package com.experian.buname.easynotes.actuator;
+package com.example.easynotes.actuator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,8 +11,6 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.experian.buname.easynotes.actuator.InternetHealthIndicator;
 
 @RunWith(SpringRunner.class)
 public class InternetHealthIndicatorTest {

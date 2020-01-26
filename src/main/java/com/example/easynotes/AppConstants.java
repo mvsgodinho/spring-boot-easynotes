@@ -1,4 +1,4 @@
-package com.experian.buname.easynotes;
+package com.example.easynotes;
 
 /**
  * @author Marcos Godinho
@@ -7,10 +7,9 @@ package com.experian.buname.easynotes;
 public final class AppConstants {
 	
 	public static final String TITLE = "Easy Notes API";
-	public static final String DESCRIPTION = "Experian Easy Notes Spring Sample";
-	public static final String BU_NAME = "bu_name";
+	public static final String DESCRIPTION = "Easy Notes Spring Sample";
 	public static final String NAME = "easynotes";
-	public static final String BASE_PKG = "com.experian.buname.easynotes";
+	public static final String BASE_PKG = "com.example.easynotes";
 	public static final String RESOURCE_ID = NAME;
 	public static final String API_BASE_URL = "/api/";
 

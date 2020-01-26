@@ -1,5 +1,6 @@
-package com.experian.buname.easynotes.controller;
+package com.example.easynotes.controller;
 
+import com.example.easynotes.EasyNotesApplication;
 import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,8 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.experian.buname.easynotes.AppConstants;
-import com.experian.buname.easynotes.EasyNotesApplication;
+import com.example.easynotes.AppConstants;
 import com.jayway.jsonpath.JsonPath;
 
 //http://www.baeldung.com/spring-boot-testing

@@ -3,18 +3,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.experian.buid</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>spring-boot-easynotes-api-sample</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>Experian Easy Notes Spring Sample</name>
+	<name>Easy Notes Spring Sample</name>
 	<description>Rest API for a Simple Note Taking Application</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.4.RELEASE</version>
+		<version>2.2.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 

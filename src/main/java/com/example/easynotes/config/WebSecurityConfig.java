@@ -1,4 +1,4 @@
-package com.experian.buname.easynotes.config;
+package com.example.easynotes.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import com.experian.buname.easynotes.AppConstants;
+import com.example.easynotes.AppConstants;
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)

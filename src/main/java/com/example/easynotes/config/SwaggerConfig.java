@@ -1,21 +1,24 @@
-package com.experian.buname.easynotes.config;
+package com.example.easynotes.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.experian.buname.easynotes.AppConstants;
+import com.example.easynotes.AppConstants;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.paths.AbstractPathProvider;
 import springfox.documentation.spring.web.paths.Paths;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Arrays;
 
 /**
  * @author Marcos Godinho
@@ -39,6 +42,8 @@ public class SwaggerConfig {
                 .apiInfo(metaData(AppConstants.ApiV1.VERSION))
                 .host(apiHost)
                 .pathProvider(new BasePathAwareRelativePathProvider(AppConstants.ApiV1.BASE_URL))
+				.securityContexts(Arrays.asList(securityContext()))
+				.securitySchemes(Arrays.asList(authScheme()))
                 ;
         // @formatter:on
     }
@@ -52,6 +57,21 @@ public class SwaggerConfig {
                 .build();
         // @formatter:on
     }
+
+	private SecurityContext securityContext() {
+		return SecurityContext.builder()
+				.securityReferences(Arrays.asList(authReference()))
+				.forPaths(PathSelectors.regex(AppConstants.ApiV1.BASE_URL + "/.*"))
+				.build();
+	}
+
+	private SecurityScheme authScheme() {
+		return new BasicAuth("basicAuth");
+	}
+
+	private SecurityReference authReference() {
+		return new SecurityReference("basicAuth", new AuthorizationScope[0]);
+	}
 
     // From https://github.com/springfox/springfox/issues/963#issuecomment-198551416
 	class BasePathAwareRelativePathProvider extends AbstractPathProvider {

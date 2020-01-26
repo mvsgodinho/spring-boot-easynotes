@@ -1,9 +1,9 @@
-package com.experian.buname.easynotes.repository;
+package com.example.easynotes.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.experian.buname.easynotes.model.Note;
+import com.example.easynotes.model.Note;
 
 /**
  * Created by rajeevkumarsingh on 27/06/17.
