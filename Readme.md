@@ -2,6 +2,8 @@
 
 Build Restful CRUD API for a simple Note-Taking application using Spring Boot, JPA and Hibernate.
 
+console.log('test');
+
 ## Requirements
 
 1. Java - 1.8.x
