@@ -1,0 +1,15 @@
+name: PR Review
+on:
+  pull_request:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ethanis/nitpicker@v1
+          with:
+            nitpicks: '.github/nitpicks.yml'
+            token: '${{ secrets.GITHUB_TOKEN }}'

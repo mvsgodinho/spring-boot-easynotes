@@ -1,0 +1,18 @@
+- markdown: |
+    ## Rockstar alert
+    Thanks for this contribution, we _really_ appreciate your help :heart:!
+
+- markdown: |
+    ## Uh oh
+    Don't check in binaries...we use GitHub Packages for those!
+  blocking: true
+  pathFilter:
+    - '+**/*.dll'
+
+- markdown: |
+    Are you _sure_ you want to be console logging or debuggering here?? :trollface:
+  pathFilter:
+    - 'src/**'
+  contentFilter:
+    - '(\+\s*console.log\(.*\))'
+    - '(\+\s*debugger)'
