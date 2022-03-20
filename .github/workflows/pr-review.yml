@@ -6,10 +6,11 @@ on:
       - develop
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: ethanis/nitpicker@v1
-          with:
-            nitpicks: '.github/nitpicks.yml'
-            token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: Nitpicker
+        with:
+          nitpicks: '.github/nitpicks.yml'
+          token: '${{ secrets.GITHUB_TOKEN }}'
