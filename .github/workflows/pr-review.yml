@@ -4,16 +4,12 @@ on:
   push:
     branches:
       - develop
-
 jobs:
   build:
-  - name: build
     runs-on: ubuntu-latest
     steps:
-    - name: run command
-      run: echo foo
-    - name: nitpicker
-      uses: ethanis/nitpicker@v1
-      with:
-      - nitpicks: ".github/nitpicks.yml"
-        token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: nitpicker
+        uses: ethanis/nitpicker@v1
+        with:
+          nitpicks: './.github/nitpicks.yml'
+          token: '${{ secrets.GITHUB_TOKEN }}'
