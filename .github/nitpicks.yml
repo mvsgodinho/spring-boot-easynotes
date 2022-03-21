@@ -11,6 +11,7 @@
 
 - markdown: |
     Are you _sure_ you want to be console logging or debuggering here?? :trollface:
+  blocking: true
   pathFilter:
     - 'src/**'
   contentFilter:
