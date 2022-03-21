@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: nitpicker
-        uses: ethanis/nitpicker@v1.4
+        uses: ethanis/nitpicker
         with:
           nitpicks: '.github/nitpicks.yml'
           token: '${{ secrets.GITHUB_TOKEN }}'
